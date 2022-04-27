@@ -7,7 +7,36 @@ from discord.ext import commands
 
 '''Translator cog - Love Archit & Lyric'''
 
-
+@client.event
+async def on_reaction_add(reaction, user):
+    msg = message.content;
+    if reaction.emoji == "🇫🇷":
+      to_language = "french";
+        translate(self, ctx, to_language, *, msg);
+    else if reaction.emoji == "🇩🇪":
+        to_language = "german";
+        translate(self, ctx, to_language, *, msg);
+    else if reaction.emoji == "🇷🇺":
+        to_language = "russian";
+        translate(self, ctx, to_language, *, msg);
+    else if reaction.emoji == "🇮🇹":
+        to_language = "italian";
+        translate(self, ctx, to_language, *, msg);
+    else if reaction.emoji == "🇪🇸":
+        to_language = "spanish";
+        translate(self, ctx, to_language, *, msg);
+    else if reaction.emoji == "🏴󠁧󠁢󠁥󠁮󠁧󠁿":
+        to_language = "english";
+        translate(self, ctx, to_language, *, msg);
+    else if reaction.emoji == "🇺🇲󠁧󠁢󠁥󠁮󠁧󠁿":
+        to_language = "english";
+        translate(self, ctx, to_language, *, msg);
+    else if reaction.emoji == "🇬🇧󠁧󠁢󠁥󠁮󠁧󠁿":
+        to_language = "english";
+     translate(self, ctx, to_language, *, msg);   
+    
+      await user.add_roles(Role)
+        
 class Translate:
     def __init__(self, bot):
         self.bot = bot
@@ -15,6 +44,7 @@ class Translate:
     # Thanks to lyric for helping me in making this possible. You are not so bad afterall :] ~~jk~~
     @commands.command(pass_context=True)
     async def translate(self, ctx, to_language, *, msg):
+        
         """Translates words from one language to another. Do [p]help translate for more information.
         Usage:
         [p]translate <new language> <words> - Translate words from one language to another. Full language names must be used.
